@@ -18,18 +18,12 @@ The following files must be present for it to work.
 
 **Example input: (dmesg.txt)**
 ```
-[    0.000000] Initializing cgroup subsys cpuset
-[    0.000000] Initializing cgroup subsys cpu
 [2518647.427425] Out of memory: Kill process 20757 (java) score 78 or sacrifice child
 [2518647.433502] Killed process 20757 (java) total-vm:7901288kB, anon-rss:1275032kB, file-rss:11068kB
 ```
 
 **Example output: (dmesg_human_readable_time.txt)**
 ```
- Boot at: 2018-06-14 19:17:43
- Collect: 2018-06-20 18:57:43
-[2018-06-07 18:36:56] Initializing cgroup subsys cpuset
-[2018-06-07 18:36:56] Initializing cgroup subsys cpu
 [2018-07-06 22:14:23] Out of memory: Kill process 20757 (java) score 78 or sacrifice child
 [2018-07-06 22:14:23] Killed process 20757 (java) total-vm:7901288kB, anon-rss:1275032kB, file-rss:11068kB
 ```
