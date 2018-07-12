@@ -1,4 +1,4 @@
-This script convert_dmesg_time.sh will help us correlate system events occurred in dmesg with other ES events by converting system time to human readable time *local* in dmesg.
+This script convert_dmesg_time.sh will help us correlate system events occurred in dmesg with other ES events by converting system time to human readable **local** time in dmesg.
 
 _Disclaimer, the human readable output in dmesg may be off by few seconds._
 
