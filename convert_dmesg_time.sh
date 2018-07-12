@@ -61,6 +61,16 @@ function human_readable_to_epoch(){
   fi
 }
 
+function get_next_day(){ 
+  if [[ $os = *"Darwin"* ]]; then
+    date -v "+1d" -j -f "%Y-%m-%d" $1 +"%Y-%m-%d" #Mac
+  elif [[ $os = *"Linux"* ]]; then
+    date -d "$1 +1 day" +"%Y-%m-%d" #Linux
+  else
+    echo " Unknown OS, please submit a git issue"
+  fi
+}
+
 #0. Check necessary file exists.
 if [[ ! -f manifest.json || ! -f top.txt || ! -f dmesg.txt ]]; then
   echo " One of the files does not exist: manifest.json, top.txt, or dmesg.txt"
@@ -116,7 +126,7 @@ if [[ $line =~ ^top[[:space:]]-[[:space:]]([0-9]{2}:[0-9]{2}:[0-9]{2})[[:space:]
   if [ $diff -le 36000 ]; then #assumes less than 10 hours between collect and top is ok
     top_date=$collect_date
   else
-    top_date=$(date -v "+1d" -j -f "%Y-%m-%d" $collect_date +"%Y-%m-%d")
+    top_date=$(get_next_day $collect_date)
   fi
   collect_epoch=$(human_readable_to_epoch $top_date $top_time)
 fi
